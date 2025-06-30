@@ -38,4 +38,35 @@ if not os.path.exists(target_folder):
 elif not os.isdir(target_folder):
     #target_folderがファイルだった場合のエラー
 
-    print("エラー")
+    print("エラー: 監視フォルダとして指定されたパスはフォルダではありません")
+    #より詳細なエラーメッセージ
+
+    print("プログラムを終了します。")
+    #プログラムをここで停止させたい場合この行を追加
+
+else: 
+    #target_folderが存在し、かつフォルダであった場合　<--- ここに'else:'が必要です
+
+    #移動先のベースフォルダが存在しない場合、作成
+    #ここから以下の行が、上の'else:'に4つ分のスペースで字下げされます
+
+    os.makedirs(destination_base_folder, exist_ok=True)
+
+    if not os.path.isdir(destination_base_folder):
+        #作成できなかった場合（権限など）
+
+        print(f"エラー: 移動先ベースフォルダ　'{destination_base_folder}'を作成できませんでした。")
+        print("プログラムを終了します。")
+        #プログラムをここで停止させたい場合にこの行を追加
+
+    else:
+            #destination_base_folder が正常に存在または作成した場合
+            #'pass'を書きエラーが出ないようにする
+
+            pass #仮置き。　あとで実際の処理を記述
+
+print("\n--- 処理が完了しました　---")        
+
+
+    
+
